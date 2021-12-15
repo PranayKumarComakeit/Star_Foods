@@ -54,6 +54,9 @@ else
             .send(message).
             then((res) => console.log("Email is sent" + res))
             .catch((error) => console.log("Erorr message from sendgrid is" + error));
+
+
+            
             const data = {
                 user: {
                   id: user.id,
@@ -146,11 +149,8 @@ router.post('/deactivateuser', async(req, res)=>
     if(!user)
     {
     return res.status(400).json({error: "Sorry Some errror occured"});
-    }
-
-   
+    }   
     try{
-        
         user.isActive=false;
         await user.save();
         const data = {
@@ -205,10 +205,7 @@ catch(error)
             }
 }
 )
-
-
 //api call for password updation /api/updatepassword
-
 router.post("/updatepassword", async(req, res)=>
 {
     let user = await User.findOne({paskey:req.body.passkey});
