@@ -16,5 +16,5 @@ const UserSchema=mongoose.Schema({
     isEmailVerified:{type:Boolean, default:false},
     isActive:{type:Boolean, default:true}
 })
-const User = mongoose.model('User',UserSchema);
+const User =  mongoose.model('User', UserSchema);
 module.exports = User;
