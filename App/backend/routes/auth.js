@@ -25,7 +25,7 @@ router.post('/createuser', [
 try{
 let user=await User.findOne({email:req.body.email});
 if(user){
-    return res.status(400).json({errors:"Sorry Email Already Exists!"});
+    return res.status(400).json({message:"Sorry Email Already Exists!"});
 
 }
 else
@@ -63,12 +63,12 @@ else
                 },
               };
               const authToken = jwt.sign(data, JWT_SECRET);
-              res.json({ authToken });
+              res.json({message:"User Created", authtoken:authToken});
             }
 }
 catch(error){
     console.log(error.message);
-    res.status(500).send("Some Error occurred"+ error);
+    res.status(400).send({message:"Some Error occurred"});
 }
 })
 
@@ -80,12 +80,12 @@ router.post('/verifyEmail', async(req,res)=>{
     console.log(user);
     if(!user)
     {
-        return res.status(400).json({errors:"sorry you are not registered"})
+        return res.status(400).json({message:"sorry you are not registered"})
       
     }
     else if(user.isEmailVerified)
     {
-        return res.status(400).json({errors:"You are already Verified"});
+        return res.status(400).json({message:"You are already Verified"});
     }
     try{
     if(req.body.passkey===user.passkey)
@@ -99,12 +99,12 @@ router.post('/verifyEmail', async(req,res)=>{
         }
     }
     const authToken = jwt.sign(data, JWT_SECRET);
-    res.json({ authToken });
+    return res.json({message:"You are succesfully verified", authtoken:authToken});
             }
         }
         catch(error){
             console.log(error.message);
-            res.status(500).send("Some Error occurred"+ error);
+           return res.status(500).send({message:"Some Error occurred"});
         }
 })
 
@@ -113,8 +113,8 @@ router.post('/verifyEmail', async(req,res)=>{
 
 router.post('/login', async(req, res)=>{
     let user = await User.findOne({email:req.body.email});
-    if(!user)return res.status(400).json({errors:"sorry you are not registered"});
-    else if (user.isEmailVerified!=true)return res.status(400).json({errors:"sorry you are not verified "});
+    if(!user)return res.status(400).json({message:"sorry you are not registered"});
+    else if (user.isEmailVerified!=true)return res.status(400).json({message:"sorry you are not verified "});
     else 
     {
         try
@@ -123,7 +123,7 @@ router.post('/login', async(req, res)=>{
           const passwordCompare = await bcrypt.compare(password,user.password);
         if(!passwordCompare){
             success = false;  
-            return res.status(400).json({success, error: "Wrong Credentials"});
+            return res.status(400).json({ message: "Wrong Credentials"});
           }
           const data = {
               user:{
@@ -133,11 +133,11 @@ router.post('/login', async(req, res)=>{
           const authToken = jwt.sign(data, JWT_SECRET);
           console.log("Logged in");
           success = true;
-          res.json({ success, authToken });
+          res.json({ message:"User logged in", authtoken:authToken });
         }
         catch(error){
             console.log(error.message);
-            res.status(500).send("Some Error occurred"+ error);
+            res.status(500).send({message:"Some Error occurred"});
         }
     }
 })
@@ -148,7 +148,7 @@ router.post('/deactivateuser', async(req, res)=>
     let user = await User.findOne({email:req.body.email});
     if(!user)
     {
-    return res.status(400).json({error: "Sorry Some errror occured"});
+    return res.status(400).json({message: "Sorry Some errror occured"});
     }   
     try{
         user.isActive=false;
@@ -159,7 +159,7 @@ router.post('/deactivateuser', async(req, res)=>
             }
         }
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ authToken });
+        res.json({message:"user succesfully deactivated", authtoken:authToken});
             }
             catch(error)
             {
@@ -191,17 +191,13 @@ router.post("/passkeyforupdation", async(req,res)=>
         then((res) => console.log("Email is sent to : "+ user.email))
         .catch((error) => console.log("Erorr message from sendgrid is" + error));
       await user.save();
-      const data = {
-        user:{
-            id:user.id
-        }
-    }
+      res.json({message:"otp is sent succesfully"});
     const authToken = jwt.sign(data, JWT_SECRET);
     res.json({ authToken });
 }
 catch(error)
             {
-                res.status(500).send("Some Error occurred"+ error);
+                res.status(500).send({message:"Some Error occurred"});
             }
 }
 )
@@ -209,7 +205,7 @@ catch(error)
 router.post("/updatepassword", async(req, res)=>
 {
     let user = await User.findOne({paskey:req.body.passkey});
-    if(!user)return res.status(400).json({error: "Sorry paskey is not correct"});
+    if(!user)return res.status(400).json({message: "Sorry paskey is not correct"});
     try{
         const salt=await bcrypt.genSalt(10);
         const secpass=await bcrypt.hash(req.body.password, salt);
@@ -221,11 +217,11 @@ router.post("/updatepassword", async(req, res)=>
             }
         }
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ authToken });
+        res.json({message:"password updated succesfully",authtoken: authToken });
     }
     catch(error)
             {
-                res.status(500).send("Some Error occurred"+ error);
+                res.status(500).send({message:"Some Error occurred"});
             }
 });
 module.exports = router ;
