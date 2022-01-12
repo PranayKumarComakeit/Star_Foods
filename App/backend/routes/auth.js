@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 var jwt = require("jsonwebtoken");
 const JWT_SECRET = "this is my app";
-const User = require("../models/user");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 const sendgrid = require('@sendgrid/mail');
@@ -10,7 +10,7 @@ const apikey = 'SG.7BvK_MLZRumAQ9-bnDciNg.xBLPxC_sipWZIKiJ_vl_ed752jXFyKoEBlf7va
 sendgrid.setApiKey(apikey);
 const emailTemplates = require("../emailtemplate");
 const { body, validationResult } = require("express-validator");
-const { findOne, findByIdAndDelete } = require('../models/user');
+const { findOne, findByIdAndDelete } = require('../models/User');
 
 // user Signup api call route 1 using post : /api/auth/createuser 
 router.post('/createuser', [

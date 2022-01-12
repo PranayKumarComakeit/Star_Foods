@@ -6,7 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 const Login=()=>{
-
+    // eslint-disable-next-line
     const paperStyle={padding :20,height:'50vh',width:500, margin:"200px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'10px 0'}
