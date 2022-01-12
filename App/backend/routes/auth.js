@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 var jwt = require("jsonwebtoken");
 const JWT_SECRET = "this is my app";
-const User = require("../models/User");
+const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 const sendgrid = require('@sendgrid/mail');
@@ -10,9 +10,9 @@ const apikey = 'SG.7BvK_MLZRumAQ9-bnDciNg.xBLPxC_sipWZIKiJ_vl_ed752jXFyKoEBlf7va
 sendgrid.setApiKey(apikey);
 const emailTemplates = require("../emailtemplate");
 const { body, validationResult } = require("express-validator");
-const { findOne, findByIdAndDelete } = require('../models/User');
+const { findOne, findByIdAndDelete } = require('../models/user');
 
-// user Signup api call route 1 using post : /api/auth/createuser 
+// user Signup api call route 1 using post : /api/auth/createuser
 router.post('/createuser', [
     body("name", "Enter a valid name").isLength({ min: 3 }),
     body("email", "Enter a valid email").isEmail(),
@@ -56,7 +56,7 @@ else
             .catch((error) => console.log("Erorr message from sendgrid is" + error));
 
 
-            
+
             const data = {
                 user: {
                   id: user.id,
@@ -73,7 +73,7 @@ catch(error){
 })
 
 
-//Email verification api call route 2 /api/auth/verifyEmail 
+//Email verification api call route 2 /api/auth/verifyEmail
 
 router.post('/verifyEmail', async(req,res)=>{
     let user=await User.findOne({email:req.body.email});
@@ -81,7 +81,7 @@ router.post('/verifyEmail', async(req,res)=>{
     if(!user)
     {
         return res.status(400).json({message:"sorry you are not registered"})
-      
+
     }
     else if(user.isEmailVerified)
     {
@@ -108,21 +108,21 @@ router.post('/verifyEmail', async(req,res)=>{
         }
 })
 
-//login api call route 3 /api/auth/login 
+//login api call route 3 /api/auth/login
 
 
 router.post('/login', async(req, res)=>{
     let user = await User.findOne({email:req.body.email});
     if(!user)return res.status(400).json({message:"sorry you are not registered"});
     else if (user.isEmailVerified!=true)return res.status(400).json({message:"sorry you are not verified "});
-    else 
+    else
     {
         try
         {
           const{email,password}=req.body;
           const passwordCompare = await bcrypt.compare(password,user.password);
         if(!passwordCompare){
-            success = false;  
+            success = false;
             return res.status(400).json({ message: "Wrong Credentials"});
           }
           const data = {
@@ -149,7 +149,7 @@ router.post('/deactivateuser', async(req, res)=>
     if(!user)
     {
     return res.status(400).json({message: "Sorry Some errror occured"});
-    }   
+    }
     try{
         user.isActive=false;
         await user.save();
