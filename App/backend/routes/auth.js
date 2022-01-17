@@ -111,7 +111,7 @@ router.post('/verifyEmail', async(req,res)=>{
 router.post('/login', async(req, res)=>{
     let user = await User.findOne({email:req.body.email});
     if(!user)return res.status(400).json({errors:"sorry you are not registered"});
-    else if (user.isEmailVerified!=true)return res.status(400).json({errors:"sorry you are not verified "});
+    else if (user.isEmailVerified!==true)return res.status(400).json({errors:"sorry you are not verified "});
     else 
     {
         try

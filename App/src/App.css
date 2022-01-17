@@ -3,7 +3,7 @@ body{
   transition: 0.5s;
   /* linear-gradient(135deg, 	rgb(255, 204, 204) 0%,     rgba(253,187,45,1) 100%) */
   font-family: "work sans";
-  margin: 200px;
+  margin: 100px;
   padding-left: 400px;
   padding-right: 500px;
 }
