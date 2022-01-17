@@ -30,6 +30,7 @@ import { useState } from "react";
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.logoLg}>
             Star Foods 
+            
           </Typography>
           <div className={classes.tokens}>
           <Typography className={classes.tokens}>BreakFast</Typography>
