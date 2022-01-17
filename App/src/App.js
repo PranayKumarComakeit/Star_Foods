@@ -1,5 +1,5 @@
 import Login from './components/Login';
-//import './App.css';
+import './App.css';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import PasswordUpdate from './components/UpdatePassword';
