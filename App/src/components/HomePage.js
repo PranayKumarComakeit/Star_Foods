@@ -46,7 +46,7 @@ import { useState } from "react";
       <main >
         <section className="hero_container" style={{"margin":"1rem 0","marginTop":"1rem"}}>
           <div className="star_image">
-            <img src="../HomepageStar.jpg" alt="star image" style={{position: 'absolute',
+            <img src="https://github.com/PranayKumarComakeit/Star_Foods/blob/main/App/src/HomepageStar.jpg?raw=true" alt="star image" style={{position: 'absolute',
 width: '507px',
 height: '507px',
 left: '709px',
