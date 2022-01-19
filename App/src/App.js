@@ -21,23 +21,27 @@
 // }
 
 // export default App;
+
+
 import Login from './components/Login';
-//import './App.css';
+import './App.css';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import PasswordUpdate from './components/UpdatePassword';
 import BreakfastDashboard from './components/BreakfastDashboard';
+import HomePage from './components/HomePage';
 import BreakFast from './components/BreakFast';
 
 function App() {
   return (
     <div className="App">
       {/* <Login />
-      <Register /> 
+      <Register />
       <ForgotPassword />
       <PasswordUpdate /> */}
-      <BreakfastDashboard/>
-      {/* <BreakFast /> */}
+      {/* <BreakfastDashboard/> */}
+      {/* <HomePage/> */}
+      <BreakFast />
     </div>
   );
 }
