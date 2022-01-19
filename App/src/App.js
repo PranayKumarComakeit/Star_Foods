@@ -15,18 +15,19 @@
 //         <Route exact path="/" element={<Register />}></Route>
 //       </Routes>
 //       </BrowserRouter>
-      
+
 //     </div>
 //   );
 // }
 
 // export default App;
 import Login from './components/Login';
-//import './App.css';
+import './App.css';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import PasswordUpdate from './components/UpdatePassword';
 import BreakfastDashboard from './components/BreakfastDashboard';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
       <Register />
       <ForgotPassword />
       <PasswordUpdate /> */}
-      <BreakfastDashboard/>
+      {/* <BreakfastDashboard/> */}
+      <HomePage/>
     </div>
   );
 }

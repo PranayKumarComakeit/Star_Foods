@@ -20,7 +20,7 @@ import { useState } from "react";
      },
     },
   }));
-  const Navbar=()=>{
+  const HomePage=()=>{
     // eslint-disable-next-line
     const [open, setOpen] = useState(false);
     const classes = useStyles({ open });
@@ -29,13 +29,13 @@ import { useState } from "react";
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.logoLg}>
-            Star Foods 
-            
+            Star Foods
+
           </Typography>
           <div className={classes.tokens}>
           <Typography className={classes.tokens}>BreakFast</Typography>
             <Typography className={classes.tokens}>Lunch</Typography>
-            <Typography className={classes.tokens}>Dinner</Typography>  
+            <Typography className={classes.tokens}>Dinner</Typography>
           </div>
           <div className={classes.icons}>
             <Typography >Login</Typography>
@@ -43,18 +43,57 @@ import { useState } from "react";
           </div>
         </Toolbar>
       </AppBar>
-      <main className="container" style={{"width":"100%","height":"100%","paddingLeft":"100px","marginLeft":"10px","paddingRight":"15px","marginRight":"auto"}}>
+      <main >
         <section className="hero_container" style={{"margin":"1rem 0","marginTop":"1rem"}}>
           <div className="star_image">
-            <img style={{"width":"700px","height":"650px","position":"absolute","right":"auto","left":"850px","z-index":"2"}} src="../src/Star.jpg" alt="star image" className="star_pattern"/>
+            <img src="../HomepageStar.jpg" alt="star image" style={{position: 'absolute',
+width: '507px',
+height: '507px',
+left: '709px',
+top: '100px'}}/>
           </div>
-          <div class="hero__description" style={{"marginTop":"300px"}}>
-          <h1 class="hero__text" style={{"color":"#AF7AC5"}}>
+          <div>
+          <p  style={{position:'absolute',
+           width:'317px',
+           height:'67px',
+           left:'60px',
+           top:'219px',
+           fontFamily:'Poppins',
+           fontStyle:'normal',
+           fontWeight:'500',
+           fontSize:'48px',
+           lineHeight:'72px',
+           color:'#AF7AC5'
+          }}>
             Star Foods
-          </h1>
-          <h3>South Indian Brahmin Foods</h3>
-          <h5>A healthy home cooked Brahmin Food Served at your door</h5>
-          <button class="button__primary" style={{"backgroundColor":"#AF7AC5","marginTop":"300px","padding":"0.5rem 1rem","textAlign":"center","textTransform":"0.5s","transition":"0.5s","fontWeight":"600","backgroundSize":"200% auto","color":"white","boxShadow":"0 0 20px #eee","borderRadius":"8px","display":"block"}}><a>Get Started!!</a></button>
+          </p>
+          <h1 style={{position:'absolute',
+           width:'486.04px',
+           height:'28.04px',
+           left:'63px',
+           top:'312px',
+           color:'#333333'
+          }}>South Indian Brahmin Foods</h1>
+          <h5 style={{position:'absolute',
+           width:'489px',
+           height:'69px',
+           left:'60px',
+           top:'354px',
+           fontFamily:'Pavanam',
+           fontStyle:'normal',
+           fontSize:'24px',
+           fontWeight:'normal',
+           lineHeight:'31px',
+           color:'black'
+          }}>A healthy home cooked Brahmin Food Served at your door</h5>
+          <button  style={
+            {"backgroundColor":"#AF7AC5","padding":"0.5rem 1rem","textAlign":"center","textTransform":"0.5s","transition":"0.5s","fontWeight":"600","backgroundSize":"200% auto","color":"white","boxShadow":"0 0 20px #eee","borderRadius":"8px","display":"block",
+            position:'absolute',
+            width:'163px',
+            height:'50px',
+            left:'69px',
+            top:'606px'
+            }}><a>Get Started!!</a></button>
         </div>
         </section>
       </main>
@@ -63,5 +102,5 @@ import { useState } from "react";
     };
 
 
-  
-  export default Navbar;
+
+  export default HomePage;

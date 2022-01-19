@@ -41,7 +41,7 @@ const BreakfastDashboard = () => {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Box component="img" alt="Your logo." src="../Logo.jpg" />
+            <Box component="img" alt="Your logo." src="https://github.com/PranayKumarComakeit/Star_Foods/blob/main/App/src/StarLogo.png?raw=true" />
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
