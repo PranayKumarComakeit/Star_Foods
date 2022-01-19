@@ -54,9 +54,6 @@ else
             .send(message).
             then((res) => console.log("Email is sent" + res))
             .catch((error) => console.log("Erorr message from sendgrid is" + error));
-
-
-
             const data = {
                 user: {
                   id: user.id,
