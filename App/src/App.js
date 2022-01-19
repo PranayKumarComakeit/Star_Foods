@@ -27,6 +27,7 @@ import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import PasswordUpdate from './components/UpdatePassword';
 import BreakfastDashboard from './components/BreakfastDashboard';
+import BreakFast from './components/BreakFast';
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
       <ForgotPassword />
       <PasswordUpdate /> */}
       <BreakfastDashboard/>
-      
+      {/* <BreakFast /> */}
     </div>
   );
 }
