@@ -1,5 +1,6 @@
 import { getByDisplayValue } from '@testing-library/react';
 import React from 'react';
+import Swal from "sweetalert2";  
 function loadscript(src)
 {
     return new Promise((resolve=>{
@@ -34,6 +35,12 @@ function Razrpay() {
             image: "https://example.com/your_logo",
             //order_id: data.id,
             handler: function (response){
+                Swal.fire({  
+                    title: 'Success',  
+                    type: 'success',  
+                    icon:'success',
+                    text: 'Your Payament is successful',  
+                  });  
                 alert(response.razorpay_payment_id);
                 alert(response.razorpay_order_id);
                 alert(response.razorpay_signature)

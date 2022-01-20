@@ -149,7 +149,7 @@ top: '100px'}}/>
             height:'50px',
             left:'69px',
             top:'606px',
-            }}><a>Get Started!!</a></button>
+            }}><a href="/login">Getstarted</a></button>
         </div>
         </section>
       </main>

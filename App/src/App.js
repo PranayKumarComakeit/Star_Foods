@@ -28,6 +28,10 @@ import ForgotPassword from './components/ForgotPassword';
 import PasswordUpdate from './components/UpdatePassword';
 import BreakfastDashboard from './components/BreakfastDashboard';
 import HomePage from './components/HomePage';
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import { Routes ,Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -37,7 +41,13 @@ function App() {
       <ForgotPassword />
       <PasswordUpdate /> */}
       {/* <BreakfastDashboard/> */}
-      <HomePage/>
+      {/* <HomePage/> */}
+      <Router>
+        <Routes>
+    <Route path='/' element={<HomePage/>} />
+    <Route path='/login' element={<Login/>} />
+    </Routes>
+    </Router> 
     </div>
   );
 }
