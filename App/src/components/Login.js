@@ -111,12 +111,13 @@
 // export default Login
 
 import React from 'react'
-import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Button, Typography } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { Link } from 'react-router-dom';
 const Login=()=>{
     // eslint-disable-next-line
     const paperStyle={padding :20,height:'50vh',width:500, margin:"200px auto"}
@@ -140,7 +141,7 @@ const Login=()=>{
 
     }
     return(
-        
+
         <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
@@ -163,10 +164,10 @@ const Login=()=>{
                 )}
                 </Formik>
                 <Typography >
-                    <Link href="#" >Forgot password ?</Link>
+                    <Link to="/forgotpassword" >Forgot password ?</Link>
                 </Typography>
                 <Typography > Do you have an account ?
-                     <Link href="#" >Sign Up </Link>
+                     <Link to="/register" >Sign Up </Link>
                 </Typography>
             </Paper>
         </Grid>

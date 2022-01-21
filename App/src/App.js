@@ -21,17 +21,15 @@
 // }
 
 // export default App;
-import Login from './components/Login';
-import './App.css';
-import Register from './components/Register';
-import ForgotPassword from './components/ForgotPassword';
-import PasswordUpdate from './components/UpdatePassword';
-import BreakfastDashboard from './components/BreakfastDashboard';
-import HomePage from './components/HomePage';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
-import { Routes ,Route } from 'react-router-dom';
+import Login from "./components/Login";
+import "./App.css";
+import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
+import PasswordUpdate from "./components/UpdatePassword";
+import BreakfastDashboard from "./components/BreakfastDashboard";
+import HomePage from "./components/HomePage";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -44,10 +42,13 @@ function App() {
       {/* <HomePage/> */}
       <Router>
         <Routes>
-    <Route path='/' element={<HomePage/>} />
-    <Route path='/login' element={<Login/>} />
-    </Routes>
-    </Router> 
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register/>} />
+          <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
+          <Route exact path="/updatepassword" element={<PasswordUpdate/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
