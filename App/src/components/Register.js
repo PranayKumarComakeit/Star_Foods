@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core'
+import { Grid, Paper, Avatar, Typography, TextField, Button} from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -10,6 +10,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { FormHelperText } from '@material-ui/core'
 import * as Yup from 'yup'
+import { Link } from 'react-router-dom';
+
 const Register = () => {
     const paperStyle = { padding: 20, width: 500, margin: "0 auto" }
     const headerStyle = { margin: 0 }
@@ -73,7 +75,7 @@ const Register = () => {
                             <Field as={TextField} fullWidth name="confirmPassword" type="password" label='Confirm Password' placeholder="Confirm your password" helperText={<ErrorMessage name="confirmPassword" />} />
                             <FormControlLabel control={<Field as={Checkbox} name="termsAndConditions" />} label="I accept the terms and conditions."/>
                             <FormHelperText><ErrorMessage name="termsAndConditions" /></FormHelperText>
-                            <Button type='submit' variant='contained' disabled={props.isSubmitting} color='primary'>{props.isSubmitting ? "Loading" : "Sign Up"}</Button>
+                            <Button type='submit' variant='contained' disabled={props.isSubmitting} color='primary'><Link to="/login" style={{color:'white'}}>{props.isSubmitting ? "Loading" : "Sign Up"}</Link></Button>
 
                         </Form>
                     )}

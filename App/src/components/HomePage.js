@@ -9,7 +9,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
+import { Link } from 'react-router-dom';
   const useStyles = makeStyles((theme) => ({
     icons: {
       alignItems: "center",
@@ -149,7 +149,7 @@ top: '100px'}}/>
             height:'50px',
             left:'69px',
             top:'606px',
-            }}><a href="/login">Getstarted</a></button>
+            }}><Link to="/login" style={{color:'white'}}>Get Started</Link></button>
         </div>
         </section>
       </main>

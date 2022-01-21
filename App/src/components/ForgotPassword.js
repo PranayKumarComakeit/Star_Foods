@@ -2,7 +2,9 @@ import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+
 const ForgotPassword=()=>{
 
     const paperStyle={padding :20,height:'50vh',width:500, margin:"200px auto"}
@@ -23,7 +25,7 @@ const ForgotPassword=()=>{
 
     }
     return(
-        
+
         <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
@@ -35,7 +37,7 @@ const ForgotPassword=()=>{
                 <Form>
                     <Field as={TextField} label='Email' name="email" placeholder='Enter Your Email' fullWidth required helperText={<ErrorMessage name="email" />}/>
                     <br /><br />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} disabled={props.isSubmitting}>{props.isSubmitting ? "Loading" : "Get passkey"}</Button>
+                <Button type='submit' color='primary' variant="contained" style={btnstyle} disabled={props.isSubmitting}><Link to="/updatepassword" style={{color:'white'}}>{props.isSubmitting ? "Loading" : "Get passkey"}</Link></Button>
                 </Form>
                 )}
                 </Formik>
